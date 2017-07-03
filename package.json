@@ -1,0 +1,23 @@
+{
+  "name": "cakesrus",
+  "version": "1.0.0",
+  "description": "cake shop",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benmanuel12/Cakes-R-Us.git"
+  },
+  "author": "Ben Manuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benmanuel12/Cakes-R-Us/issues"
+  },
+  "homepage": "https://github.com/benmanuel12/Cakes-R-Us#readme"
+}
