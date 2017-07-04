@@ -29,7 +29,7 @@ app.get('/list_user', function (req, res) {
 app.get('/user', function (req, res) {
   console.log("Got a GET request for the /user page.")
   //Finish this later
-  res.send('')
+  res.send('<h1> <strong> Users: <\strong>HAL, Ben, Gavin<\h1>')
 })
 
 // This responds a GET request for abcd, abxcd, ab123cd and so on
