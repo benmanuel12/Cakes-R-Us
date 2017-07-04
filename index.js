@@ -28,7 +28,8 @@ app.get('/list_user', function (req, res) {
 // This responds a GET request for the /user page.
 app.get('/user', function (req, res) {
   console.log("Got a GET request for the /user page.")
-  res.send('<h1>Users: <strong>HAL<\strong><\h1>')
+  //Finish this later
+  res.send('')
 })
 
 // This responds a GET request for abcd, abxcd, ab123cd and so on
