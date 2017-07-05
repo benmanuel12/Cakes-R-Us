@@ -55,10 +55,10 @@ app.get('/process_get', function(req, res) {
   res.end(JSON.stringify(response));
 })
 
-// This responds with "Hello World" on the homepage
+// This responds with instructions on the homepage
 app.get('/', function(req, res) {
   console.log("Got a GET request for the homepage");
-  res.send('Hello World');
+  res.send("To see a list of users, add /list_user to URL. To see Pattern Match, add /abcd to URL. To see a picture, add it to /public/images and add /images/filename.extension to URL. To view file upload page, add /file_upload to URL");
   app.use(express.static('public'));
 
 })
