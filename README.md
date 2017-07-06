@@ -1,9 +1,1 @@
-This is a cake database.
-
-Todo:
-
-=> Store database of cakes.
-
-=> Search database.
-
-=> Add cakes to database.
+Navigate to localhost:8080 for list of functions

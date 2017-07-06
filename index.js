@@ -58,7 +58,7 @@ app.get('/process_get', function(req, res) {
 // This responds with instructions on the homepage
 app.get('/', function(req, res) {
   console.log("Got a GET request for the homepage");
-  res.send("To see a list of users, add /list_user to URL. To see Pattern Match, add /abcd to URL. To see a picture, add it to /public/images and add /images/filename.extension to URL. To view file upload page, add /file_upload to URL");
+  res.send("To see a list of users, add /list_user to URL.<br> To see Pattern Match, add /abcd to URL.<br> To see a picture, add it to /public/images and add /images/filename.extension to URL.<br> To view file upload page, add /file_upload to URL");
   app.use(express.static('public'));
 
 })
