@@ -21,7 +21,6 @@ app.get('/form.htm', function (req, res) {
 
 app.get('/process_get', function(req, res) {
   //Prepare output in JSON format
-  console.log('HERE');
   var cake = {
     cake_name:req.query.cake_name,
     sponge_flavour:req.query.sponge_flavour,
@@ -29,24 +28,28 @@ app.get('/process_get', function(req, res) {
     topping:req.query.topping,
     shape:req.query.shape
   };
-  console.log(cake);
+  var cakes = [];
+  var file = 'tmp/cakes.json'
+  jsonfile.readFile(file, cake, function (err) {
+    if(data) {
+      cakes = data;
+    }
+    cakes.push(cake);
 
-  // make users.json an array
-  // open file and add new object in with push
-  // save back
-  var file = 'cakes.json'
-  jsonfile.writeFile(file, cake, {flag: 'a'}, function (err) {
-    console.error(err)
+    jsonfile.writeFile(file, cakes, function(err){
+      res.send('done');
+    })
   })
   res.end('Cake Submitted');
 })
 
-// This responds a GET request for the /list_user page.
-app.get('/user_list', function (req, res) {
-  console.log("Got a GET request for the /user_list page.")
-  var file = 'cakes.json'
-  var user_list = jsonfile.readFileSync(file);
-  res.sendFile(path.join(__dirname + '/user_list.html'));
+// This responds a GET request for the /cake_list page.
+app.get('/cake_list', function (req, res) {
+  console.log("Got a GET request for the /cake_list page.")
+  var file = 'tmp/cakes.json'
+  var cakes = jsonfile.readFileSync(file);
+  //res.sendFile(path.join(__dirname + '/cake_list.html'));
+  res.send(cakes)
 })
 
 // This responds a GET request for abcd, abxcd, ab123cd and so on
