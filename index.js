@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+var path = require('path');
 
 var bodyParser = require('body-parser');
 var multer = require('multer');
@@ -10,7 +11,6 @@ app.use(express.static('public'));
 
 // Used in file uploading
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(multer({dest:'C:\\Users\\djlonlap\\Documents\\GitHub\\Cakes-R-Us\\uploads'}).single('singleInputFileName'));
 
 // Used in the submission form page
 app.get('/index.htm', function (req, res) {
@@ -33,12 +33,7 @@ app.get('/', function(req, res) {
   console.log("Got a GET request for the homepage");
 
   // Move inline style onto CSS file
-  res.send("<strong style = font-family:'Tahoma';>Instructions:</strong> <br> \
-  <p style = font-family:'Arial';>To see a list of users, <a href='/list_user'>/list_user</a>.<br>\
-   To see Pattern Match, <a href='/abcd'>/abcd</a>.<br>\
-    To see a picture, add it to /public/images folder and add /images/filename.extension to URL.<br>\
-     Example: <a href='/images/test.jpg'>/images/test.jpg</a><br><br>\
-      To view form page, <a href='/index.htm'>/index.htm</a></p> ");
+  res.sendFile(path.join(__dirname + '/homepage.html'));
   app.use(express.static('public'));
 
 })
@@ -55,7 +50,7 @@ app.get('/ab*cd', function(req, res) {
   res.send('Page Pattern Match');
 })
 
-  var server = app.listen(8080, function() {
+  var server = app.listen(8083, function() {
   var host = server.address().address
   var port = server.address().port
 
