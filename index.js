@@ -10,38 +10,11 @@ app.use(express.static('public'));
 
 // Used in file uploading
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(multer({dest:'/public/'}).single('singleInputFileName'));
+app.use(multer({dest:'C:\\Users\\djlonlap\\Documents\\GitHub\\Cakes-R-Us\\uploads'}).single('singleInputFileName'));
 
 // Used in the submission form page
 app.get('/index.htm', function (req, res) {
   res.sendFile( __dirname + "/" + "index.htm");
-})
-
-// Used in the file_upload page
-app.get('/file_upload.htm', function (req, res) {
-  res.sendFile( __dirname + "/" + "file_upload.htm");
-})
-
-app.post('/file_upload', function (req, res) {
-  console.log(req.files.file.name);
-  console.log(req.files.file.path);
-  console.log(req.files.file.path);
-  var file = __dirname + "/" + req.files.file.name;
-
-  fs.readFile(req.files.file.path, function (err, data) {
-    fs.writeFile(file, data, function (err) {
-      if(err){
-        console.log(err);
-      }else{
-        response = {
-          message:'File uploaded successfully',
-          filename:req.files.file.name
-        };
-      }
-    console.log(response);
-    res.end(JSON.stringify(response ) );
-  });
-});
 })
 
 app.get('/process_get', function(req, res) {
@@ -58,7 +31,14 @@ app.get('/process_get', function(req, res) {
 // This responds with instructions on the homepage
 app.get('/', function(req, res) {
   console.log("Got a GET request for the homepage");
-  res.send("To see a list of users, add /list_user to URL.<br> To see Pattern Match, add /abcd to URL.<br> To see a picture, add it to /public/images and add /images/filename.extension to URL.<br> To view file upload page, add /file_upload to URL");
+
+  // Move inline style onto CSS file
+  res.send("<strong style = font-family:'Tahoma';>Instructions:</strong> <br> \
+  <p style = font-family:'Arial';>To see a list of users, <a href='/list_user'>/list_user</a>.<br>\
+   To see Pattern Match, <a href='/abcd'>/abcd</a>.<br>\
+    To see a picture, add it to /public/images folder and add /images/filename.extension to URL.<br>\
+     Example: <a href='/images/test.jpg'>/images/test.jpg</a><br><br>\
+      To view form page, <a href='/index.htm'>/index.htm</a></p> ");
   app.use(express.static('public'));
 
 })
@@ -66,7 +46,7 @@ app.get('/', function(req, res) {
 // This responds a GET request for the /list_user page.
 app.get('/list_user', function (req, res) {
   console.log("Got a GET request for the /list_user page.")
-  res.send('<h1> <strong> Users: <\strong> HAL, Ben, Gavin<\h1>')
+  res.send('<h1> <strong> Users: </strong> HAL, Ben, Gavin</h1>')
 })
 
 // This responds a GET request for abcd, abxcd, ab123cd and so on
