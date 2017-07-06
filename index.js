@@ -29,7 +29,7 @@ app.get('/process_get', function(req, res) {
     shape:req.query.shape
   };
   var cakes = [];
-  var file = 'tmp/cakes.json'
+  var file = 'cakes.json'
   jsonfile.readFile(file, cake, function (err) {
     if(data) {
       cakes = data;
@@ -46,7 +46,7 @@ app.get('/process_get', function(req, res) {
 // This responds a GET request for the /cake_list page.
 app.get('/cake_list', function (req, res) {
   console.log("Got a GET request for the /cake_list page.")
-  var file = 'tmp/cakes.json'
+  var file = 'cakes.json'
   var cakes = jsonfile.readFileSync(file);
   //res.sendFile(path.join(__dirname + '/cake_list.html'));
   res.send(cakes)
