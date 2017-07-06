@@ -28,6 +28,10 @@ app.get('/process_get', function(req, res) {
     nick_name:req.query.nick_name
   };
   console.log(user);
+
+  // make users.json an array
+  // open file and add new object in with push
+  // save back
   var file = 'users.json'
   jsonfile.writeFile(file, user, {flag: 'a'}, function (err) {
     console.error(err)
