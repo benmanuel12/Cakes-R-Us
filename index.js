@@ -31,8 +31,8 @@ app.get('/process_get', function(req, res) {
   var cakes = [];
   var file = 'cakes.json'
   jsonfile.readFile(file, cake, function (err) {
-    if(data) {
-      cakes = data;
+    if(cake) {
+      cakes = cake;
     }
     cakes.push(cake);
 
