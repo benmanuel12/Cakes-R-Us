@@ -28,16 +28,16 @@ app.get('/process_get', function(req, res) {
     topping:req.query.topping,
     shape:req.query.shape
   };
-  var cakes = [];
-  var file = 'cakes.json'
+  var CakeArray = [];
+  var file = 'cakesJSON.json'
   jsonfile.readFile(file, cake, function (err) {
     if(cake) {
-      cakes = cake;
+      CakeArray = cake;
     }
-    cakes.push(cake);
+    CakeArray.push(cake);
 
-    jsonfile.writeFile(file, cakes, function(err){
-      res.send('done');
+    jsonfile.writeFile(file, CakeArray, function(err){
+      res.send('Done');
     })
   })
   res.end('Cake Submitted');
@@ -46,17 +46,17 @@ app.get('/process_get', function(req, res) {
 // This responds a GET request for the /cake_list page.
 app.get('/cake_list', function (req, res) {
   console.log("Got a GET request for the /cake_list page.")
-  var file = 'cakes.json'
-  var cakes = jsonfile.readFileSync(file);
+  var file = 'cakesJSON.json'
+  var CakeArray = jsonfile.readFileSync(file);
   //res.sendFile(path.join(__dirname + '/cake_list.html'));
-  res.send(cakes)
+  res.send(CakeArray)
 })
 
 // This responds a GET request for abcd, abxcd, ab123cd and so on
-app.get('/ab*cd', function(req, res) {
-  console.log("Got a GET request for /ab*cd");
-  res.send('Page Pattern Match');
-})
+// app.get('/ab*cd', function(req, res) {
+// console.log("Got a GET request for /ab*cd");
+// res.send('Page Pattern Match');
+// })
 
 // This responds with instructions on the homepage
 app.get('/', function(req, res) {
