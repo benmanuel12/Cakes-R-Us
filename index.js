@@ -1,3 +1,4 @@
+// All required npm modules
 var express = require('express');
 var fs = require("fs");
 var path = require('path');
@@ -5,6 +6,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var jsonfile = require('jsonfile')
 
+// Initialises express application
 var app = express();
 
 // Allows images to be displayed at http://localhost:8080/public/filename.extension
@@ -14,7 +16,6 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Used in the submission form page
-
 app.get('/form.htm', function (req, res) {
   res.sendFile( __dirname + "/" + "form.htm");
 })
@@ -28,8 +29,14 @@ app.get('/process_get', function(req, res) {
     topping:req.query.topping,
     shape:req.query.shape
   };
+
+  // Creates array
   var CakeArray = [];
+
+  // Locates file
   var file = 'cakesJSON.json'
+
+  // Reads file and appends (pushes) JSON data to end
   jsonfile.readFile(file, cake, function (err) {
     if(cake) {
       CakeArray = cake;
@@ -64,6 +71,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/homepage.html'));
 })
 
+// Sets up the server for the application to run on
   var server = app.listen(8083, function() {
   var host = server.address().address
   var port = server.address().port
