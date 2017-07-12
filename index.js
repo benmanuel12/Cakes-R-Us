@@ -20,6 +20,11 @@ app.get('/form.htm', function (req, res) {
   res.sendFile( __dirname + "/" + "form.htm");
 })
 
+// Used in the pictures page
+app.get('/picture_index.html', function (req, res) {
+  res.sendFile( __dirname + "/" + "picture_index.html");
+})
+
 app.get('/process_get', function(req, res) {
   //Prepare output in JSON format
   var cake = {
