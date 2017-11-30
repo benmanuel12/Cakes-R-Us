@@ -64,13 +64,6 @@ app.get('/cake_list', function (req, res) {
   res.send(CakeArray)
 })
 
-// This responds a GET request for abcd, abxcd, ab123cd and so on
-// app.get('/ab*cd', function(req, res) {
-// console.log("Got a GET request for /ab*cd");
-// res.send('Page Pattern Match');
-// })
-
-// This responds with instructions on the homepage
 app.get('/', function(req, res) {
   console.log("Got a GET request for the homepage");
   res.sendFile(path.join(__dirname + '/homepage.html'));
