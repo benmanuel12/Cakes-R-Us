@@ -1,20 +1,21 @@
-Cakes 'R' Us Searchable and Editable Database
+**Cakes 'R' Us Searchable and Editable Database**
 
 This is my work experience project.
-The prerelease version is a stable but incomplete version containing the progress from around the end of the placement
+The prerelease version is a stable but incomplete version containing the progress from around the end of the placement.
 When it is complete I will release a finished version.
+**Note-Finished version on hold until I figure out how to create and use JSON files.**
 
-Requirements for use:
--NodeJS
--Command Prompt
+Requirements for use:\n
+-NodeJS\n
+-Command Prompt\n
 -Web browser
 
 Node Module Dependencies:
--express
--fs
--path
--body-parser
--multer
+-express\n
+-fs\n
+-path\n
+-body-parser\n
+-multer\n
 -jsonfile
 
 Instructions For Running:
